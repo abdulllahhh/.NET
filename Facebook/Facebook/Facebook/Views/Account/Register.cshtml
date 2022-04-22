@@ -1,0 +1,178 @@
+﻿@model Facebook.Models.User
+@{
+    ViewBag.Title = "Register";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="My Facebook" />
+    <title>
+        Facebook
+    </title>
+    <!-- CSS External Files -->
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link href="@Url.Content("~/Content/normalize.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Register.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    @Html.Partial("_DefaultNavBar")
+
+
+  
+<div class="d-flex align-items-center justify-content-center" style="padding:50px">
+    <div class="shadow p-3 mb-5 bg-white rounded col-8 justify-content-center">
+
+        @using (Html.BeginForm("Register","Account"))
+        {
+        @Html.AntiForgeryToken()
+        <form class="form-horizontal content">
+
+            <h2 class="text-center"> Create a new account</h2>
+            <fieldset>
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                   @* <label for="First Name" class="col-lg-2 control-label">First Name:</label>
+          *@        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "col-lg-2 control-label" }) 
+                    <div class="col-lg-10">
+                        @*<input type="text" class="form-control" placeholder="First Name">*@
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @* <label for="Last Name" class="col-lg-2 control-label">Last Name:</label>*@
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "col-lg-2 control-label" })
+                    <div class="col-lg-10">
+                        @* <input type="text" class="form-control" placeholder="Last Name">*@
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @* <label for="inputEmail" class="col-lg-2 control-label">Email:</label>*@
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-lg-10">
+                        @*<input type="email" class="form-control" placeholder="Email">*@
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @*<label for="inputEmail" class="col-lg-2 control-label">Phone Number:</label>*@
+                    @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "col-lg-2 control-label" })
+                    <div class="col-lg-10">
+                        @*<input type="text" class="form-control" placeholder="Phone Number">*@
+                        @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @*<label for="City" class="col-lg-2 control-label">City:</label>*@
+                    @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "col-lg-2 control-label" })
+                    <div class="col-lg-10">
+                        @*<input type="text" class="form-control" placeholder="City">*@
+                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @*<label for="Country" class="col-lg-2 control-label">Country:</label>*@
+                    @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "col-lg-2 control-label" })
+                    <div class="col-lg-10">
+                        @*<input type="text" class="form-control" placeholder="Country">*@
+                        @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class="col-lg-2 control-label" })
+                    @*<label for="inputPassword" class="col-lg-2 control-label">Password:</label>*@
+                    <div class="col-lg-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        @* <input type="password" class="form-control" id="inputPassword" placeholder="Password">*@
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model=>model.ConfirmPassword ,new {htmlAttributes = new {@class= "col-lg-2 control-label" } })
+                    @*<label for="inputPassword" class="col-lg-2 control-label">Confirm Password:</label>*@
+                    <div class="col-lg-10">
+                        @Html.EditorFor(model=>model.ConfirmPassword, new {htmlAttributes= new{@class= "form-control" }})
+                        @Html.ValidationMessageFor(model=>model.ConfirmPassword,"", new { htmlAttributes = new { @class = "text-danger" } })
+                        @*<input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password">*@
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                   @* <label for="select" class="col-lg-2 control-label">Birth Date:</label>*@
+                    @Html.LabelFor(model=>model.Birthdate,new { htmlAttributes =new { @class = "col-lg-2 control-label" } })
+                    <div class="col-lg-10">
+                        @*    <input type="date" class="form-control">*@
+                        @Html.EditorFor(model => model.Birthdate, new { htmlAttribute = new { @class = "col-lg-2 control-label" } })
+                        @Html.ValidationMessageFor(model => model.Birthdate, "", new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(model=>model.Gender,new { htmlAttributes = new { @class = "col-lg-2 control-label" }})
+                    @*<label class="col-lg-2 control-label">Gender:</label>*@
+                    <div class="col-lg-10">
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButton("Gender",new { htmlAttributes = new { @name = "optionsRadios", @id = "optionsRadios1", @value = "Male" ,@checked= ""} })<br />
+                                @Html.ValidationMessageFor(model=>model.Gender)
+                                @*<input type="radio" name="optionsRadios" id="optionsRadios1" value="Male" checked="">*@
+                                Male
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButton("Gender", new { htmlAttributes = new { @name = "optionsRadios", @id = "optionsRadios1", @value = "Female", @checked = "" } })<br />
+                                @Html.ValidationMessageFor(model => model.Gender)
+                                @*<input type="radio" name="optionsRadios" id="optionsRadios2" value="Female">*@
+                                Female
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButton("Gender", new { htmlAttributes = new { @name = "optionsRadios", @id = "optionsRadios1", @value = "Other", @checked = "" } })
+                                @*<input type="radio" name="optionsRadios" id="optionsRadios2" value="Other">*@
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <label for="img" class="col-lg-2 control-label">Select image:</label>
+                    <input type="file" name="img" accept="image/*">
+
+                </div>
+                <br />
+                <br />
+                <div class="form-group text-center">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+        }
+    </div>
+
+</div>
+       <h6>@ViewBag.msg</h6>
+</body>
+</html>

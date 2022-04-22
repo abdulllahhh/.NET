@@ -1,0 +1,24 @@
+﻿<div class="col-3 shadow-none p-3 mb-5 bg-light rounded ">
+    <img class="rounded mx-auto d-block" src="~/Content/Images/no-image.jpeg" />
+    <br />
+
+    <h4 style="color:black; text-align:center">Clara William</h4>
+    <hr class="my-4">
+    <div class="list-group">
+        <button type="button" class="list-group-item list-group-item-action" onclick="location.href='@Url.Action("GetProfileView")'">
+                Your Profile <i class="bi bi-person-square" style="float:right"></i>
+        </button>
+        <button type="button" class="list-group-item list-group-item-action" onclick="location.href='@Url.Action("GetEditView")'">
+                Edit your profile <i class="bi bi-pencil-square" style="float:right"></i>
+        </button>
+        <button type="button" class="list-group-item list-group-item-action" onclick="location.href='@Url.Action("GetPostView")'">
+                Posts<i class="bi bi-card-text" style="float:right"></i>
+            </button>
+        <button type="button" class="list-group-item list-group-item-action" onclick="location.href='@Url.Action("GetFriendRequestsView")'">
+                Friend Requests <i class="bi bi-person-plus-fill" style="float:right"></i>
+        </button>
+        <button type="button" class="list-group-item list-group-item-action" onclick="location.href='@Url.Action("GetFriendsView")'">
+                Your Friends<i class="bi bi-people-fill" style="float:right"></i>
+        </button>
+    </div>
+</div>

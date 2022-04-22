@@ -1,0 +1,78 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+    
+</head>
+<body>
+    @Html.Partial("_NavBar")
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Partial("_LeftList")
+        <div class="container-fluid col-9">
+            <div style="padding:10px 50px">
+                <div class="card-header"><i class="bi bi-info-circle-fill"></i>&nbsp;Details</div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-3"><i class="bi bi-envelope-fill"></i>&nbsp;Email Address:</dt>
+                        <dd class="col-9">clara.william.140@gmail.com</dd>
+
+                        <br />
+
+                        <dt class="col-3"><i class="bi bi-telephone-fill"></i>&nbsp;Phone Number:</dt>
+                        <dd class="col-9">012002007544</dd>
+
+                        <br />
+
+                        <dt class="col-3"><i class="bi bi-geo-alt-fill"></i>&nbsp;Country:</dt>
+                        <dd class="col-9">Egypt</dd>
+
+                        <br />
+
+                        <dt class="col-3"><i class="bi bi-house-door-fill"></i>&nbsp;City:</dt>
+                        <dd class="col-9">Gizah</dd>
+
+                        <br />
+
+                        <dt class="col-3"><i class="bi bi-person-circle"></i>&nbsp;Gender:</dt>
+                        <dd class="col-9">Female</dd>
+
+                        <br />
+
+                        <dt class="col-3"><i class="bi bi-calendar-event-fill"></i>&nbsp;Birthdate:</dt>
+                        <dd class="col-9">13/11/2001</dd>
+
+                        
+                    </dl>
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <div style="padding:10px 50px">
+                <div class="card-header"><i class="bi bi-pencil-fill"></i>&nbsp; Write New Post</div>
+                <div class="card-body">
+                    <form>
+                        <textarea class="form-control" id="exampleTextarea" rows="4" placeholder="......."></textarea>
+                        <br />
+                        <button type="submit" class="btn btn-primary" style="float:right">Save</button>
+                    </form>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+        </div>
+
+
+    </div>
+    </div>
+</body>
+</html>
