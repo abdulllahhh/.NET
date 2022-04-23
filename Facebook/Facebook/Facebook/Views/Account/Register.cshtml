@@ -29,13 +29,13 @@
         {
         @Html.AntiForgeryToken()
         <form class="form-horizontal content">
-
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
             <h2 class="text-center"> Create a new account</h2>
             <fieldset>
                 @Html.AntiForgeryToken()
                 <div class="form-group">
-                   @* <label for="First Name" class="col-lg-2 control-label">First Name:</label>
-          *@        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "col-lg-2 control-label" }) 
+                    @* <label for="First Name" class="col-lg-2 control-label">First Name:</label>
+                    *@        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "col-lg-2 control-label" })
                     <div class="col-lg-10">
                         @*<input type="text" class="form-control" placeholder="First Name">*@
                         @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
@@ -94,7 +94,7 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class="col-lg-2 control-label" })
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-lg-2 control-label" })
                     @*<label for="inputPassword" class="col-lg-2 control-label">Password:</label>*@
                     <div class="col-lg-10">
                         @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
@@ -104,18 +104,18 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    @Html.LabelFor(model=>model.ConfirmPassword ,new {htmlAttributes = new {@class= "col-lg-2 control-label" } })
+                    @Html.LabelFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "col-lg-2 control-label" } })
                     @*<label for="inputPassword" class="col-lg-2 control-label">Confirm Password:</label>*@
                     <div class="col-lg-10">
-                        @Html.EditorFor(model=>model.ConfirmPassword, new {htmlAttributes= new{@class= "form-control" }})
-                        @Html.ValidationMessageFor(model=>model.ConfirmPassword,"", new { htmlAttributes = new { @class = "text-danger" } })
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { htmlAttributes = new { @class = "text-danger" } })
                         @*<input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password">*@
                     </div>
                 </div>
                 <br />
                 <div class="form-group">
-                   @* <label for="select" class="col-lg-2 control-label">Birth Date:</label>*@
-                    @Html.LabelFor(model=>model.Birthdate,new { htmlAttributes =new { @class = "col-lg-2 control-label" } })
+                    @* <label for="select" class="col-lg-2 control-label">Birth Date:</label>*@
+                    @Html.LabelFor(model => model.Birthdate, new { htmlAttributes = new { @class = "col-lg-2 control-label" } })
                     <div class="col-lg-10">
                         @*    <input type="date" class="form-control">*@
                         @Html.EditorFor(model => model.Birthdate, new { htmlAttribute = new { @class = "col-lg-2 control-label" } })
@@ -125,47 +125,33 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    @Html.LabelFor(model=>model.Gender,new { htmlAttributes = new { @class = "col-lg-2 control-label" }})
-                    @*<label class="col-lg-2 control-label">Gender:</label>*@
-                    <div class="col-lg-10">
-                        <div class="radio">
-                            <label>
-                                @Html.RadioButton("Gender",new { htmlAttributes = new { @name = "optionsRadios", @id = "optionsRadios1", @value = "Male" ,@checked= ""} })<br />
-                                @Html.ValidationMessageFor(model=>model.Gender)
-                                @*<input type="radio" name="optionsRadios" id="optionsRadios1" value="Male" checked="">*@
-                                Male
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                @Html.RadioButton("Gender", new { htmlAttributes = new { @name = "optionsRadios", @id = "optionsRadios1", @value = "Female", @checked = "" } })<br />
-                                @Html.ValidationMessageFor(model => model.Gender)
-                                @*<input type="radio" name="optionsRadios" id="optionsRadios2" value="Female">*@
-                                Female
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                @Html.RadioButton("Gender", new { htmlAttributes = new { @name = "optionsRadios", @id = "optionsRadios1", @value = "Other", @checked = "" } })
-                                @*<input type="radio" name="optionsRadios" id="optionsRadios2" value="Other">*@
-                                Other
-                            </label>
-                        </div>
-                    </div>
+                    @Html.LabelFor(model => model.Gender, new { htmlAttributes = new { @class = "col-lg-2 control-label" } })
+                    
+                    @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
                 <br />
-                <div>
-                    <label for="img" class="col-lg-2 control-label">Select image:</label>
-                    <input type="file" name="img" accept="image/*">
+                @*<div>
+        <label for="img" class="col-lg-2 control-label">Select image:</label>
+        <input type="file" name="img" accept="image/*">
 
-                </div>
-                <br />
-                <br />
-                <div class="form-group text-center">
-                    <div class="col-lg-10 col-lg-offset-2">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+         </div>*@
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.file, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.file, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                        @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
                     </div>
-                </div>
+                    </div>
+                    <br />
+
+
+                    <br />
+                    <div class="form-group text-center">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button type="submit" value="create" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
 
             </fieldset>
         </form>

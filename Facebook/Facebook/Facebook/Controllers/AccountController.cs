@@ -1,6 +1,7 @@
 ﻿using Facebook.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -20,16 +21,49 @@ namespace Facebook.Controllers
         {
             return View("Register");
         }
-        [HttpGet]
-        public ActionResult Register(User obj, HttpPostedFileBase img)
+        public ActionResult Register ()
         {
-            string path = Uploadimage(img);
-            if (ModelState.IsValid|| !path.Equals("-1"))
+            return View();
+        }
+       
+        [HttpPost]
+        public ActionResult Register(User obj, HttpPostedFileBase file)
+        {
+            
+            if (ModelState.IsValid)
             {
                 Models.FacebookDbEntities db = new Models.FacebookDbEntities();
                 db.Users.Add(obj);
-                obj.Image = path;
-                db.SaveChanges();
+                try
+                {
+                    // Your code...
+                    // Could also be before try if you know the exception occurs in SaveChanges
+                    db.Users.Add(obj);
+                    if (file != null)
+                    {
+                        string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file.FileName));
+                        file.SaveAs(path);
+                    }
+                    db.SaveChanges();
+                    return View("Login");
+                   
+
+                }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+                }
+
             }
             return View(obj);
         }

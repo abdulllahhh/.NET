@@ -10,40 +10,34 @@
 namespace Facebook.Models
 {
     using System;
-    using System.ComponentModel;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public partial class User
     {
         public int User_id { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
+        [Required(ErrorMessage = "Please enter first name")]
         public string FirstName { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
+        [Required(ErrorMessage = "Please enter Last name")]
         public string LastName { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
+        [Required(ErrorMessage = "Please enter Email")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
-        public int Mobile { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
+        public Nullable<int> Mobile { get; set; }
         public string Country { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
         public string City { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
+        [Required(ErrorMessage = "Please enter your Gender")]
         public string Gender { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
         public string Image { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
+        [Required(ErrorMessage = "Please select image ")]
         public Nullable<System.DateTime> Birthdate { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
-        [DataType(DataType.Password)]
-        [DisplayName("Password")]
+        [Required(ErrorMessage = "Please enter your password")]
         public string Password { get; set; }
-        [DataType(DataType.Password)]
-        [DisplayName("Confirm Password")]
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
 
-
+        [DataType(DataType.Upload)]
+        [Display(Name = "Upload File")]
+        [Required(ErrorMessage = "Please choose file to upload.")]
+        public string file { get; set; }
     }
 }

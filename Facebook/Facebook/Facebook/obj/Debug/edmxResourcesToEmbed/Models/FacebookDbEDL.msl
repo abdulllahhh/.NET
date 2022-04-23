@@ -4,11 +4,11 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="FacebookDbModel.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
           <ScalarProperty Name="User_id" ColumnName="User_id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
           <ScalarProperty Name="Country" ColumnName="Country" />
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />

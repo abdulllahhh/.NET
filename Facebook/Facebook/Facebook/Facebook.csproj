@@ -151,7 +151,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FacebookDbEDL.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>FacebookDbEDL.tt</DependentUpon>
     </Compile>

@@ -13,7 +13,7 @@
           <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="Mobile" Type="int" Nullable="false" />
+          <Property Name="Mobile" Type="int" />
           <Property Name="Country" Type="nchar" MaxLength="30" />
           <Property Name="City" Type="nchar" MaxLength="30" />
           <Property Name="Gender" Type="nchar" MaxLength="10" />
@@ -36,7 +36,7 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Mobile" Type="Int32" Nullable="false" />
+          <Property Name="Mobile" Type="Int32" />
           <Property Name="Country" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="City" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
           <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
@@ -56,11 +56,11 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="FacebookDbModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="User_id" ColumnName="User_id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
