@@ -8,7 +8,7 @@
     <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="LastName" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="nchar" MaxLength="50" Nullable="false" />
-    <Property Name="Mobile" Type="int" />
+    <Property Name="Mobile" Type="nchar" MaxLength="20" Nullable="false" />
     <Property Name="Country" Type="nchar" MaxLength="30" />
     <Property Name="City" Type="nchar" MaxLength="30" />
     <Property Name="Gender" Type="nchar" MaxLength="10" />

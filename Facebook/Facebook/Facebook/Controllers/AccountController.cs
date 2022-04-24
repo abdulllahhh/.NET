@@ -27,27 +27,25 @@ namespace Facebook.Controllers
         }
        
         [HttpPost]
-        public ActionResult Register(User obj, HttpPostedFileBase file)
+        public ActionResult Register(User obj)
         {
             
             if (ModelState.IsValid)
             {
                 Models.FacebookDbEntities db = new Models.FacebookDbEntities();
-                db.Users.Add(obj);
+                
                 try
                 {
-                    // Your code...
-                    // Could also be before try if you know the exception occurs in SaveChanges
-                    db.Users.Add(obj);
-                    if (file != null)
-                    {
-                        string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file.FileName));
-                        file.SaveAs(path);
-                    }
-                    db.SaveChanges();
-                    return View("Login");
-                   
 
+                    var fileExtention = Path.GetExtension(obj.ImageFile.FileName);
+                    var imageGuid = Guid.NewGuid().ToString();
+                    obj.Image = imageGuid + fileExtention;
+                    //saving
+                    string filePath = Server.MapPath($"~/UplodedFiles/{obj.Image}");
+                    obj.ImageFile.SaveAs(filePath);
+                    db.Users.Add(obj);                   
+                    db.SaveChanges();
+                    return View("Login");  
                 }
                 catch (DbEntityValidationException e)
                 {
