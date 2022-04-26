@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Facebook.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         
