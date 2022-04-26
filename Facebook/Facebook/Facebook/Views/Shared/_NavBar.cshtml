@@ -18,10 +18,13 @@
                 &nbsp;
                 clara.william.140@gmail.com
             </a>
-            <form class="form-inline">
-                <button type="submit" class="btn btn-light text-dark"> 
-                LogOut&nbsp;<i class="bi bi-box-arrow-right"></i></button>
-            </form>
+            @Html.BeginForm("Logout", "Account", FormMethod.Post, new { htmlAttributes = new { @class = "form-inline", id = "logoutForm" } })
+            {
+            @Html.AntiForgeryToken()
+            <a class="btn btn-light text-dark" href="javascript:document.getElementById('logoutForm').submit()">
+                LogOut&nbsp;<i class="bi bi-box-arrow-right"></i>
+            </a>
+            }
         </div>
     </div>
 </nav>
