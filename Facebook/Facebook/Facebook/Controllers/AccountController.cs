@@ -188,8 +188,16 @@ namespace Facebook.Controllers
             return View(userInfo);
         }
 
-
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Logout()
+        {
+            var owinContext = Request.GetOwinContext();
+            var authManeger = owinContext.Authentication;
+            authManeger.SignOut("ApplicationCookie");
+            Session.Abandon();
+            return RedirectToAction("Login", "Account");
+        }
 
 
     }

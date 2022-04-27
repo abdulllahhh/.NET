@@ -267,6 +267,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\UserDetails.cshtml" />
+    <Content Include="Views\Shared\_RightNavLoginAndLogout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

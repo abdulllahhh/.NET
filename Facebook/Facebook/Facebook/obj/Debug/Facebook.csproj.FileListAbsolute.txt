@@ -193,4 +193,3 @@ E:\SWE\Level 3\semester 2\IA\Before backend\Facebook\Facebook\Facebook\obj\Debug
 E:\SWE\Level 3\semester 2\IA\Before backend\Facebook\Facebook\Facebook\obj\Debug\Facebook.csproj.CopyComplete
 E:\SWE\Level 3\semester 2\IA\Before backend\Facebook\Facebook\Facebook\obj\Debug\Facebook.dll
 E:\SWE\Level 3\semester 2\IA\Before backend\Facebook\Facebook\Facebook\obj\Debug\Facebook.pdb
-E:\SWE\Level 3\semester 2\IA\Before backend\Facebook\Facebook\Facebook\obj\Debug\Facebook.csproj.AssemblyReference.cache

@@ -1,8 +1,9 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+﻿
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
 
         <a class="navbar-brand"><i class="bi bi-facebook"></i>&nbsp;Facebook</a>
-        
+
 
         <div class="row nav navbar-nav">
             <form class="d-flex">
@@ -11,20 +12,7 @@
             </form>
         </div>
 
-
-        <div class="nav navbar-nav navbar-right">
-            <a class="nav-link text-dark">
-                <i class="bi bi-person-fill"></i>
-                &nbsp;
-                clara.william.140@gmail.com
-            </a>
-            @Html.BeginForm("Logout", "Account", FormMethod.Post, new { htmlAttributes = new { @class = "form-inline", id = "logoutForm" } })
-            {
-            @Html.AntiForgeryToken()
-            <a class="btn btn-light text-dark" href="javascript:document.getElementById('logoutForm').submit()">
-                LogOut&nbsp;<i class="bi bi-box-arrow-right"></i>
-            </a>
-            }
-        </div>
+        @Html.Partial("_RightNavLoginAndLogout")
+        
     </div>
 </nav>
