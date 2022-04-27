@@ -117,7 +117,7 @@ namespace Facebook.Controllers
                     {
                         return Redirect(loginData.ReturnUrl);
                     }
-                    return RedirectToAction("Login", "Account");
+                    return RedirectToAction("GetProfileView", "User");
                 }
                 loginData.Message = "Email or Password is incorrect";
             }
@@ -156,8 +156,8 @@ namespace Facebook.Controllers
                     var userId = identityUser.Id;
                     creationResult=  userManager.AddToRole(userId, "User");
                     //role assigned
-                    if(creationResult.Succeeded)
-                    {
+                    
+                    
                         //save to user tables
                         var savedUser = user.create(new User
                         {
@@ -178,8 +178,8 @@ namespace Facebook.Controllers
                             userInfo.Message = "there is an error while regetering your Email";
                             return View(userInfo);
                         }
-                    }
-                    return View("UserDetails");
+                    
+                     return RedirectToAction("Login", "Account");
                 };
                 var message = creationResult.Errors.FirstOrDefault();
                 ViewBag.Message = message;
