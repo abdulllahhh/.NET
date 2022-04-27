@@ -156,10 +156,11 @@ namespace Facebook.Controllers
                     var userId = identityUser.Id;
                     creationResult=  userManager.AddToRole(userId, "User");
                     //role assigned
-                    
-                    
-                        //save to user tables
-                        var savedUser = user.create(new User
+
+                    var fileExtention = Path.GetExtension(userInfo.ImageFile.FileName);
+                    var imageGuid = Guid.NewGuid().ToString();
+                    //save to user tables
+                    var savedUser = user.create(new User
                         {
                             Email = userInfo.Email,
                             FirstName = userInfo.FirstName,
@@ -168,12 +169,17 @@ namespace Facebook.Controllers
                             City=userInfo.City,
                             Country=userInfo.Country,
                             Gender=userInfo.Gender,
-                            Image=userInfo.Image,
+                            Image= imageGuid + fileExtention,
                             Mobile=userInfo.Mobile,
                             Password=userInfo.Password
                             
                         });
-                        if (savedUser==null)
+                    
+                   
+                    //saving
+                    string filePath = Server.MapPath($"~/UplodedFiles/{savedUser.Image}");
+                    userInfo.ImageFile.SaveAs(filePath);
+                    if (savedUser==null)
                         {
                             userInfo.Message = "there is an error while regetering your Email";
                             return View(userInfo);
